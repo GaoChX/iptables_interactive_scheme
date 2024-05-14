@@ -23,7 +23,7 @@
          <span>Lang:</span> 
          <select id="languageSelect">
             <option value="ru">RU</option>
-            <option value="en" selected>EN</option>
+            <option value="en">EN</option>
          </select>
       </div>
       <div id="middle">
@@ -43,6 +43,9 @@
 	window.onload = function() {
     	    var userLang = navigator.language || navigator.userLanguage; 
     	    userLang = userLang.substr(0, 2); // получаем первые две буквы языка
+	    if (userLang !== 'ru') { 
+	        userLang = 'en';
+	    } 
     	    var select = document.getElementById('languageSelect');
     	    select.value = userLang; // устанавливаем значение select в язык пользователя
         }
