@@ -52,16 +52,27 @@
 
 	//Кнопки направления трафика
 	function buttonClicked(button) {
-	    var button1 = document.getElementById('button1');
-	    var button2 = document.getElementById('button2');
-	    if (button == button1) {
-	        button1.classList.toggle('clicked');
-	        button2.classList.remove('clicked');
-	    } else if (button == button2) {
-	        button2.classList.toggle('clicked');
-	        button1.classList.remove('clicked');
-	    }
-	}
+    	    var button1 = document.getElementById('button1');
+            var button2 = document.getElementById('button2');
+        
+            //Если нажата одна кнопка, отключаем другую, чтобы не было путаницы
+            if (button == button1) {
+                button1.classList.toggle('clicked');
+                if (button1.classList.contains('clicked')) {
+                    button2.disabled = true;
+                } else {
+                    button2.disabled = false;
+                }
+            } else if (button == button2) {
+                button2.classList.toggle('clicked');
+                if (button2.classList.contains('clicked')) {
+                    button1.disabled = true;
+                } else {
+                    button1.disabled = false;
+                }
+            }
+        }
+
 	// Функция для загрузки текста кнопки
 	function loadButtonText(id, selectedLanguage) {
     	    var ButtonText = 'Iptables/' + selectedLanguage + '/' + id;
