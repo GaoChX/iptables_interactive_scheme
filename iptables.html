@@ -44,9 +44,13 @@
 	window.onload = function() {
     	    var userLang = navigator.language || navigator.userLanguage; 
     	    userLang = userLang.substr(0, 2); // получаем первые две буквы языка
+	    if (userLang !== 'ru') { 
+	        userLang = 'zh_CN';
+	    } 
     	    var select = document.getElementById('languageSelect');
     	    select.value = userLang; // устанавливаем значение select в язык пользователя
         }
+
 
 	//Кнопки направления трафика
 	function buttonClicked(button) {
